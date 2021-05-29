@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {} from 'react'
+import { StatusBar, Text, View } from 'react-native'
 
-export default function App() {
+import Navigation from './src/navigation/index'
+
+import { useFonts } from '@use-expo/font';
+
+import {AuthProvider} from 'context/auth'
+import {DataProvider} from 'context/data'
+import Loading from './src/screen/Loading';
+
+
+const App = () => {
+  
+  let [fontsLoaded] = useFonts({
+      'Lora-Bold': require('./assets/fonts/Lora-Bold.ttf'),
+      'Lora-BoldItalic': require('./assets/fonts/Lora-BoldItalic'),
+      'Lora-Italic': require('./assets/fonts/Lora-Italic.ttf'),
+      'Lora-Medium': require('./assets/fonts/Lora-Medium.ttf'),
+      'Lora-MediumItalic': require('./assets/fonts/Lora-MediumItalic.ttf'),
+      'Lora-Regular': require('./assets/fonts/Lora-Regular.ttf'),
+      'Lora-SemiBold': require('./assets/fonts/Lora-SemiBold.ttf'),
+      'Lora-SemiBoldItalic': require('./assets/fonts/Lora-SemiBoldItalic.ttf'),
+  });
+
+  if(!fontsLoaded){
+    return <Loading/>
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+      <StatusBar translucent={true} backgroundColor={'transparent'}/>
+      <Navigation/>
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
