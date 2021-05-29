@@ -4,17 +4,14 @@ import { StatusBar, Text, View } from 'react-native'
 import Navigation from './src/navigation/index'
 
 import { useFonts } from '@use-expo/font';
-
-import {AuthProvider} from 'context/auth'
-import {DataProvider} from 'context/data'
-import Loading from './src/screen/Loading';
+import Loading from 'screens/Loading';
 
 
 const App = () => {
   
   let [fontsLoaded] = useFonts({
       'Lora-Bold': require('./assets/fonts/Lora-Bold.ttf'),
-      'Lora-BoldItalic': require('./assets/fonts/Lora-BoldItalic'),
+      'Lora-BoldItalic': require('./assets/fonts/Lora-BoldItalic.ttf'),
       'Lora-Italic': require('./assets/fonts/Lora-Italic.ttf'),
       'Lora-Medium': require('./assets/fonts/Lora-Medium.ttf'),
       'Lora-MediumItalic': require('./assets/fonts/Lora-MediumItalic.ttf'),

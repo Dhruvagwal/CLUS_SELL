@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 import CONSTANT from './navigationConstant.json'
 import HomeScreen from 'screens/Home'
+import {navigationRef} from './RootNavigation';
 
 
 import color from 'colors'
